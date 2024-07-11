@@ -1,5 +1,19 @@
+
+
+
+
+
+
+
 # OrthoC
 Orthodox programming language
+
+
+
+
+
+
+
 
 # Installation
     git clone https://github.com/Mandrew0822/OrthoC.git
@@ -8,5 +22,33 @@ Orthodox programming language
     ./build
 
 
-Refer to docs.txt for furthur documentation on usage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Refer to docs.txt for further documentation on usage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
