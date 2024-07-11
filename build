@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+echo "Compiling"
+cc OC.c -o occ
+
+echo "Moving executable"
+sudo mv occ /usr/local/bin 
+
+echo "done :)"
+echo "May God bless you and be with you always."

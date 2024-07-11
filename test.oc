@@ -1,0 +1,18 @@
+Prayer: St. Porphyrios, please pray for us
+
+/pray/ this is an example program which the new interpreter *should* be able to run
+
+invoke HolyTrinity() {
+
+    faithful.chant "Hello, World!"
+}
+
+invoke SecondFunction() {
+
+    faithful.chant "Second Function"
+}
+
+/pray/ unceasingly.pray: HolyTrinity
+
+call.upon HolyTrinity
+call.upon SecondFunction
