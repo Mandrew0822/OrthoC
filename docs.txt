@@ -1,206 +1,59 @@
+# OrthoC Interpreter (occ)
+
+An OrthoC program should have the following structure:
+
+## Syntax
+
+### 1. Prayer
+- Syntax: `Prayer:`
+- Purpose: Indicates the start of the program. If not found, the interpreter will remind the user to pray.
+
+Example:
+
+Prayer:
+// Rest of the program follows
 
 
-call.upon Gratitude
+### 2. Functions
+- Definition: `invoke functionName() { ... }`
+- Calling: `call.upon functionName`
+
+Examples:
+
+invoke greet() {
+    faithful.chant("Greetings, faithful one!");
+}
+
+call.upon greet
+
+### 3. Variables
+- Declaration: `incense variableName = "value";`
+
+Example:
+
+incense blessing = "Peace be with you";
 
 
+### 4. Print Statement
+- Syntax: `faithful.chant("text", variableName)`
+- Prints text with optional variable interpolation
 
+Examples:
 
-/pray/ Uncomment the line below for an infinite loop of blessings
-/pray/ unceasingly.pray: Blessing
+faithful.chant("Hello, world!");
+faithful.chant("Blessings to you, %s", name);
 
+### 5. Loop
+- Syntax: 'unceasingly.pray: FunctionName'
+- Loops the process of a function
 
+Example:
 
+unceasingly.pray: FunctionName
 
-Output:
-May the Lord bless you and keep you
-Thank you, Lord, for this day
-
-
-
-
-Limitations:
-- Functions cannot take parameters or return values.
-- There are no variables or complex data structures.
-- Control structures are limited to the infinite loop provided by "unceasingly.pray:".
-
-
-
-
-Future Enhancements:
-- Support for function parameters and return values
+TODO:
 - Implementation of conditional statements (if/else)
-- Support for variables and basic arithmetic operations
-- User input
-- Basic file handling
-
-
-   Syntax: faithful.chant("Your message here");
-   Example: faithful.chant("Blessed are the meek");
-
-
-
-
-5. Function Call:
-   To call a function, use the "call.upon" command.
-   Syntax: call.upon FunctionName
-   Example: call.upon HolyTrinity
-
-
-
-
-6. Infinite Loop:
-   To repeatedly call a function, use the "unceasingly.pray:" command.
-   Syntax: unceasingly.pray: FunctionName
-   Example: unceasingly.pray: HolyTrinity
-
-
-
-
-   Note: This will create an infinite loop, repeatedly calling the specified function.
-
-
-
-
-Execution Order:
-1. The interpreter first processes all function definitions.
-2. It then executes all "call.upon" statements in the order they appear in the script.
-3. If an "unceasingly.pray:" statement is encountered, it will enter an infinite loop calling the specified function.
-
-
-
-
-Error Handling:
-- If a called function is not found, the interpreter will print an error message.
-- If no Prayer statement is found, a reminder message will be printed.
-
-
-
-
-Usage:
-
-
-
-
-Run a program:
-occ program.oc
-
-
-
-
-Example Script:
-Prayer: May the Lord bless this code
-
-
-
-
-invoke Blessing() {
-    faithful.chant("May the Lord bless you and keep you");
-}
-
-
-
-
-invoke Gratitude() {
-    faithful.chant("Thank you, Lord, for this day");
-}
-
-
-
-
-call.upon Blessing
-call.upon Gratitude
-
-
-
-
-/pray/ Uncomment the line below for an infinite loop of blessings
-/pray/ unceasingly.pray: Blessing
-
-
-
-
-Output:
-May the Lord bless you and keep you
-Thank you, Lord, for this day
-
-
-
-
-Limitations:
-- Functions cannot take parameters or return values.
-   Syntax: faithful.chant("Your message here");
-   Example: faithful.chant("Blessed are the meek");
-
-
-5. Function Call:
-   To call a function, use the "call.upon" command.
-   Syntax: call.upon FunctionName
-   Example: call.upon HolyTrinity
-
-
-6. Infinite Loop:
-   To repeatedly call a function, use the "unceasingly.pray:" command.
-   Syntax: unceasingly.pray: FunctionName
-   Example: unceasingly.pray: HolyTrinity
-
-
-   Note: This will create an infinite loop, repeatedly calling the specified function.
-
-
-Execution Order:
-1. The interpreter first processes all function definitions.
-2. It then executes all "call.upon" statements in the order they appear in the script.
-3. If an "unceasingly.pray:" statement is encountered, it will enter an infinite loop calling the specified function.
-
-
-Error Handling:
-- If a called function is not found, the interpreter will print an error message.
-- If no Prayer statement is found, a reminder message will be printed.
-
-
-Usage:
-
-
-Run a program:
-occ program.oc
-
-
-Example Script:
-Prayer: May the Lord bless this code
-
-
-invoke Blessing() {
-    faithful.chant("May the Lord bless you and keep you");
-}
-
-
-invoke Gratitude() {
-    faithful.chant("Thank you, Lord, for this day");
-}
-
-
-call.upon Blessing
-call.upon Gratitude
-
-
-/pray/ Uncomment the line below for an infinite loop of blessings
-/pray/ unceasingly.pray: Blessing
-
-
-Output:
-May the Lord bless you and keep you
-Thank you, Lord, for this day
-
-
-Limitations:
-- Functions cannot take parameters or return values.
-- There are no variables or complex data structures.
-- Control structures are limited to the infinite loop provided by "unceasingly.pray:".
-
-
-Future Enhancements:
-- Implementation of conditional statements (if/else)
-- Support for variables and basic arithmetic operations
+- Support basic arithmetic operations
 - User input
 - Basic file handling
 
