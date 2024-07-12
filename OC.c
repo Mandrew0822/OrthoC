@@ -43,13 +43,17 @@ void execute_function(FILE *file, const char *function_name) {
             char line[MAX_LINE_LENGTH];
             while (fgets(line, sizeof(line), file)) {
                 trim(line);
-                if (strncmp(line, "faithful.chant", 14) == 0) {
+                if (strncmp(line, "faithful.chant(", 15) == 0) {
                     char *message = strchr(line, '"');
                     if (message) {
                         message++;
                         char *end = strchr(message, '"');
-                        if (end) *end = '\0';
-                        printf("%s\n", message);
+                        if (end) {
+                            *end = '\0';
+                            if (*(end + 1) == ')' && *(end + 2) == ';') {
+                                printf("%s\n", message);
+                            }
+                        }
                     }
                 } else if (strcmp(line, "}") == 0) {
                     fseek(file, current_pos, SEEK_SET);
