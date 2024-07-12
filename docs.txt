@@ -20,7 +20,7 @@ Syntax:
    Syntax: invoke FunctionName() { ... }
    Example:
    invoke HolyTrinity() {
-       faithful.chant "Father, Son, and Holy Spirit"
+       faithful.chant("Father, Son, and Holy Spirit");
    }
 
 4. Print Statement:
