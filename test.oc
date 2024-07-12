@@ -1,6 +1,6 @@
 Prayer: St. Porphyrios, please pray for us
 
-/pray/ this is an example program which the new interpreter *should* be able to run
+/pray/ this is an example program which tests all of the functionalities of the language
 
 invoke HolyTrinity() {
 
@@ -9,10 +9,12 @@ invoke HolyTrinity() {
 
 invoke SecondFunction() {
 
-    faithful.chant("Second Function");
+    incense variable = "This function prints a variable!";
+    faithful.chant("%s", variable);
 }
 
 /pray/ unceasingly.pray: HolyTrinity
 
 call.upon HolyTrinity
 call.upon SecondFunction
+
