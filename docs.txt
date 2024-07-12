@@ -85,3 +85,4 @@ Future Enhancements:
 - Implementation of conditional statements (if/else)
 - Support for variables and basic arithmetic operations
 - User input
+- Basic file handling
