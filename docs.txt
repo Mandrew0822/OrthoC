@@ -25,8 +25,8 @@ Syntax:
 
 4. Print Statement:
    To print text, use the "faithful.chant" command within a function.
-   Syntax: faithful.chant "Your message here"
-   Example: faithful.chant "Blessed are the meek"
+   Syntax: faithful.chant("Your message here");
+   Example: faithful.chant("Blessed are the meek");
 
 5. Function Call:
    To call a function, use the "call.upon" command.
@@ -58,11 +58,11 @@ Example Script:
 Prayer: May the Lord bless this code
 
 invoke Blessing() {
-    faithful.chant "May the Lord bless you and keep you"
+    faithful.chant("May the Lord bless you and keep you");
 }
 
 invoke Gratitude() {
-    faithful.chant "Thank you, Lord, for this day"
+    faithful.chant("Thank you, Lord, for this day");
 }
 
 call.upon Blessing
