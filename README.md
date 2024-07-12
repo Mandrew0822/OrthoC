@@ -14,7 +14,10 @@
 # OrthoC
 Orthodox programming language
 
-Current Version: V1.1
+### [Current Version: v1.1]
+### Latest changes:
+	- Added Variable functionality
+ 	- Now able to call a variable to be printed
 
 # Installation
     git clone https://github.com/Mandrew0822/OrthoC.git
