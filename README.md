@@ -16,7 +16,7 @@ Orthodox programming language
 
 ### [Current Version: v1.1]
 ### Latest changes:
-	- Made 'faithful.chant()' into 'chant()'
+	- Made 'faithful.chant()' into 'chant()' for efficiency
 	- Added Variable functionality
  	- Now able to call a variable to be printed
 
