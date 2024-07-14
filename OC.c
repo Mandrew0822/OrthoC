@@ -85,7 +85,7 @@ void execute_function(FILE* file, const char* function_name) {
 	    // 'Print("");' statement equivilent
             while ((read = getline(&line, &len, file)) != -1) {
                 trim(line);
-                if (strncmp(line, "faithful.chant(", 15) == 0) {
+                if (strncmp(line, "chant(", 6) == 0) {
                     char* content_start = strchr(line, '"');
                     if (content_start) {
                         content_start++;
