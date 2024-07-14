@@ -4,13 +4,13 @@ Prayer: St. Porphyrios, please pray for us
 
 invoke HolyTrinity() {
 
-    faithful.chant("Hello, World!");
+    chant("Hello, World!");
 }
 
 invoke SecondFunction() {
 
     incense variable = "This function prints a variable!";
-    faithful.chant("%s", variable);
+    chant("%s", variable);
 }
 
 /pray/ unceasingly.pray: HolyTrinity
