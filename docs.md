@@ -21,7 +21,7 @@ Prayer:
 Examples:
 ```
 invoke greet() {
-    faithful.chant("Greetings, faithful one!");
+    chant("Greetings, faithful one!");
 }
 
 call.upon greet
@@ -36,13 +36,13 @@ incense blessing = "Peace be with you";
 ```
 
 ### 4. Print Statement
-- Syntax: `faithful.chant("text", variableName)`
+- Syntax: `chant("text", variableName)`
 - Prints text with optional variable interpolation
 
 Examples:
 ```
-faithful.chant("Hello, world!");
-faithful.chant("Blessings to you, %s", name);
+chant("Hello, world!");
+chant("Blessings to you, %s", name);
 ```
 
 ### 5. Loop
