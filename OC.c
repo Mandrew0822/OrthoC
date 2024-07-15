@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 typedef struct {
     char* name;
@@ -73,6 +74,75 @@ void free_memory() {
     free(variables);
 }
 
+int is_operator(char c) {
+    return (c == '+' || c == '-' || c == '*' || c == '/');
+}
+
+int precedence(char op) {
+    if (op == '+' || op == '-')
+        return 1;
+    if (op == '*' || op == '/')
+        return 2;
+    return 0;
+}
+
+double apply_op(double a, double b, char op) {
+    switch(op) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': return a / b;
+    }
+    return 0;
+}
+
+double evaluate_expression(const char* expression) {
+    char* token;
+    char* expr_copy = strdup(expression);
+    double values[100];
+    char ops[100];
+    int vi = 0, oi = 0;
+
+    token = strtok(expr_copy, " ");
+    while (token != NULL) {
+        if (token[0] == '(') {
+            ops[oi++] = '(';
+        }
+        else if (token[0] == ')') {
+            while (oi > 0 && ops[oi - 1] != '(') {
+                double val2 = values[--vi];
+                double val1 = values[--vi];
+                char op = ops[--oi];
+                values[vi++] = apply_op(val1, val2, op);
+            }
+            if (oi > 0) oi--;
+        }
+        else if (is_operator(token[0])) {
+            while (oi > 0 && precedence(ops[oi - 1]) >= precedence(token[0])) {
+                double val2 = values[--vi];
+                double val1 = values[--vi];
+                char op = ops[--oi];
+                values[vi++] = apply_op(val1, val2, op);
+            }
+            ops[oi++] = token[0];
+        }
+        else {
+            values[vi++] = atof(token);
+        }
+        token = strtok(NULL, " ");
+    }
+
+    while (oi > 0) {
+        double val2 = values[--vi];
+        double val1 = values[--vi];
+        char op = ops[--oi];
+        values[vi++] = apply_op(val1, val2, op);
+    }
+
+    free(expr_copy);
+    return values[0];
+}
+
 void execute_function(FILE* file, const char* function_name) {
     for (int i = 0; i < function_count; i++) {
         if (strcmp(functions[i].name, function_name) == 0) {
@@ -82,7 +152,6 @@ void execute_function(FILE* file, const char* function_name) {
             size_t len = 0;
             ssize_t read;
 
-	    // 'Print("");' statement equivilent
             while ((read = getline(&line, &len, file)) != -1) {
                 trim(line);
                 if (strncmp(line, "chant(", 6) == 0) {
@@ -129,6 +198,26 @@ void execute_function(FILE* file, const char* function_name) {
                             }
                         }
                     }
+                } else if (strncmp(line, "calc(", 5) == 0) {
+                    char* expression_start = strchr(line, '(');
+                    if (expression_start) {
+                        expression_start++;
+                        char* expression_end = strrchr(expression_start, ')');
+                        if (expression_end) {
+                            *expression_end = '\0';
+                            double result = evaluate_expression(expression_start);
+                            
+                            // Check if "> null" follows the calc() statement
+                            char* null_check = strstr(expression_end + 1, "> null");
+                            if (null_check == NULL) {
+                                // If "> null" is not present, print the result
+                                char result_str[50];
+                                snprintf(result_str, sizeof(result_str), "%f", result);
+                                printf("%s\n", result_str);
+                            }
+                            // If "> null" is present, do nothing (suppress output)
+                        }
+                    }
                 } else if (strcmp(line, "}") == 0) {
                     free(line);
                     fseek(file, current_pos, SEEK_SET);
@@ -161,7 +250,7 @@ int main(int argc, char* argv[]) {
 
     while ((read = getline(&line, &len, file)) != -1) {
         trim(line);
-        if (strncmp(line, "Prayer:", 7) == 0) { // Parse file for Prayer:
+        if (strncmp(line, "Prayer:", 7) == 0) {
             prayer_found = 1;
         } else if (strstr(line, "invoke") == line) {
             char* function_name = strchr(line, ' ') + 1;
