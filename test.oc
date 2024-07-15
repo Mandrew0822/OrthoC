@@ -13,8 +13,16 @@ invoke SecondFunction() {
     chant("%s", variable);
 }
 
+invoke MathTest() {
+    chant("Result of equation: ");
+    calc(2 + 5 - 2 / 7 * 10);
+    chant("Now an equation should be ran but with no output.");
+    calc(15 + 15); > null
+}
+
 /pray/ unceasingly.pray: HolyTrinity
 
 call.upon HolyTrinity
 call.upon SecondFunction
+call.upon MathTest
 
