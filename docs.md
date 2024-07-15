@@ -14,6 +14,8 @@ Prayer:
 // Rest of the program follows
 ```
 
+
+
 ### 2. Functions
 - Definition: `invoke functionName() { ... }`
 - Calling: `call.upon functionName`
@@ -27,6 +29,8 @@ invoke greet() {
 call.upon greet
 ```
 
+
+
 ### 3. Variables
 - Declaration: `incense variableName = "value";`
 
@@ -34,6 +38,8 @@ Example:
 ```
 incense blessing = "Peace be with you";
 ```
+
+
 
 ### 4. Print Statement
 - Syntax: `chant("text", variableName)`
@@ -45,6 +51,8 @@ chant("Hello, world!");
 chant("Blessings to you, %s", name);
 ```
 
+
+
 ### 5. Loop
 - Syntax: 'unceasingly.pray: FunctionName'
 - Loops the process of a function
@@ -52,6 +60,18 @@ chant("Blessings to you, %s", name);
 Example:
 ```
 unceasingly.pray: FunctionName
+```
+
+
+
+### 6. Arithmetic
+- Syntax: `calc(2 + 2);`
+- Purpose: Add ability to do mathematical equations
+
+Example:
+```
+calc(2 + 2);
+calc(2 + 2); > null   (<-- this will not output an answer)
 ```
 
 TODO:
