@@ -198,7 +198,7 @@ void execute_function(FILE* file, const char* function_name) {
                             }
                         }
                     }
-                } else if (strncmp(line, "calc(", 5) == 0) {
+                } else if (strncmp(line, "theosis(", 8) == 0) {
                     char* expression_start = strchr(line, '(');
                     if (expression_start) {
                         expression_start++;
