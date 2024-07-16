@@ -76,7 +76,6 @@ theosis(2 + 2); > null   (<-- this will not output an answer)
 
 TODO:
 - Implementation of conditional statements (if/else)
-- Support basic arithmetic operations
 - User input
 - Basic file handling
 
