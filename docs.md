@@ -65,13 +65,13 @@ unceasingly.pray: FunctionName
 
 
 ### 6. Arithmetic
-- Syntax: `calc(2 + 2);`
+- Syntax: `theosis(2 + 2);`
 - Purpose: Add ability to do mathematical equations
 
 Example:
 ```
-calc(2 + 2);
-calc(2 + 2); > null   (<-- this will not output an answer)
+theosis(2 + 2);
+theosis(2 + 2); > null   (<-- this will not output an answer)
 ```
 
 TODO:
