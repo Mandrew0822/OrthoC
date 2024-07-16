@@ -9,10 +9,10 @@
         ==      ██████  ██   ██    ██    ██   ██  ██████   ██████ 
 
 
-
-
 # OrthoC
 Orthodox programming language
+
+[⚠️PLEASE READ⚠️] I will be slowing development on this language as it originally started as a simple joke, I will likely finish the rest of the things on the TODO list later (as seen at the bottom of docs.md) but development past that will be purely up to any possible contributors. Have a blessed day :)
 
 ### [Current Version: v1.2]
 ### Latest changes:
