@@ -28,3 +28,11 @@ Orthodox programming language
     git clone https://github.com/Mandrew0822/OrthoC.git
     cd OrthoC
     sudo chmod +x build
+
+
+
+TODO:
+- Move to a transpiler (OrthoC -> C binary output) if im feeling adventerous
+- Implementation of conditional statements (if/else)
+- User input
+- Basic file handling
