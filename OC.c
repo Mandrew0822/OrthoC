@@ -207,7 +207,7 @@ void execute_function(FILE* file, const char* function_name) {
                             *expression_end = '\0';
                             double result = evaluate_expression(expression_start);
                             
-                            // Check if "> null" follows the calc() statement
+                            // Check if "> null" follows the theosis() statement
                             char* null_check = strstr(expression_end + 1, "> null");
                             if (null_check == NULL) {
                                 // If "> null" is not present, print the result
