@@ -43,3 +43,4 @@ TODO:
 - Implementation of conditional statements (if/else)
 - User input
 - Basic file handling
+- Better error handling
