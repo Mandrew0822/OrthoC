@@ -75,6 +75,7 @@ theosis(2 + 2); > null   (<-- this will not output an answer)
 ```
 
 TODO:
+- Move to a transpiler (OrthoC -> C binary output) if im feeling adventerous
 - Implementation of conditional statements (if/else)
 - User input
 - Basic file handling
