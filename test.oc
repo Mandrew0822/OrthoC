@@ -4,12 +4,12 @@ Prayer: St. Porphyrios, please pray for us
 
 invoke HolyTrinity() {
 
-    chant("Hello, World!");
+    chant("In the Name of the Father, Son, And The Holy Spirit.");
 }
 
 invoke SecondFunction() {
 
-    incense variable = "This function prints a variable!";
+    incense variable = "Now And Forever and unto the ages of ages. Amen.";
     chant("%s", variable);
 }
 
