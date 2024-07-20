@@ -18,10 +18,10 @@ Orthodox programming language
 
 ### [Current Version: v1.3]
 ### Latest changes:
+	- Added far better error handling
 	- Added arithmetic with 'theosis()'
 	- Made 'faithful.chant()' into 'chant()' for efficiency
 	- Added Variable functionality
- 	- Now able to call a variable to be printed
 
 
 # Installation
