@@ -28,6 +28,7 @@ Orthodox programming language
     git clone https://github.com/Mandrew0822/OrthoC.git
     cd OrthoC
     sudo chmod +x build
+    ./build
 # For Contributors
 
 When updating the code remember the following points:
