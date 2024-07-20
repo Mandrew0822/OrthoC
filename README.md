@@ -16,7 +16,7 @@
 Orthodox programming language
 
 
-### [Current Version: v1.2]
+### [Current Version: v1.3]
 ### Latest changes:
 	- Added arithmetic with 'theosis()'
 	- Made 'faithful.chant()' into 'chant()' for efficiency
