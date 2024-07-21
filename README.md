@@ -16,13 +16,12 @@
 Orthodox programming language
 
 
-### [Current Version: v1.3]
+### [Current Version: v1.4]
 ### Latest changes:
+	- Added user input with 'repent()'
 	- Added far better error handling
 	- Added arithmetic with 'theosis()'
 	- Made 'faithful.chant()' into 'chant()' for efficiency
-	- Added Variable functionality
-
 
 # Installation
     git clone https://github.com/Mandrew0822/OrthoC.git
@@ -42,5 +41,4 @@ When updating the code remember the following points:
 TODO:
 - Move to a transpiler (OrthoC -> C binary output) if im feeling adventerous
 - Implementation of conditional statements (if/else)
-- User input
 - Basic file handling
