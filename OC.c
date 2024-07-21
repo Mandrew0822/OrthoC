@@ -1,10 +1,10 @@
 /*****************************************
-***      OrthoC interpreter (occ)      ***
-***         By: Andrew Morris          ***
-***     _________________________      ***
-***    |Licensed under GNU V3 for|     ***
-***    | Free use, modification  |     ***
-***    |    and distribution     |     ***
+**      OrthoC interpreter (occ)        **
+**         By: Andrew Morris            **
+**     _________________________        **
+**    |Licensed under GNU V3 for|       **
+**    | Free use, modification  |       **
+**    |    and distribution     |       **
 *****************************************/
 
 #include <stdio.h>
@@ -15,8 +15,8 @@
 #include <errno.h>
 
 // ANSI color codes for error formatting
-#define ANSI_BG_RED "\x1b[41m"
-#define ANSI_FG_WHITE "\x1b[37m"
+#define ANSI_BG "\x1b[41m"
+#define ANSI_FG "\x1b[37m"
 #define ANSI_RESET "\x1b[0m"
 #define MAX_EXPR_ELEMENTS 100
 
@@ -41,7 +41,8 @@ int current_line_number = 0;
 
 // Function to report errors with colored [ERROR] tag
 void report_error(const char* message, int line_number) {
-    fprintf(stderr, ANSI_BG_RED ANSI_FG_WHITE "[ERROR]" ANSI_RESET " Line %d: %s\n", line_number, message);
+    
+  fprintf(stderr, ANSI_BG ANSI_FG "[ERROR]" ANSI_RESET " Line %d: %s\n", line_number, message);
 }
 
 // Function to remove leading and trailing whitespace from a string
@@ -326,7 +327,7 @@ int main(int argc, char* argv[]) {
 
     FILE* file = fopen(argv[1], "r");
     if (!file) {
-        fprintf(stderr, ANSI_BG_RED ANSI_FG_WHITE "[ERROR]" ANSI_RESET " Unable to open file '%s': %s\n", argv[1], strerror(errno));
+        fprintf(stderr, ANSI_BG ANSI_FG "[ERROR]" ANSI_RESET " Unable to open file '%s': %s\n", argv[1], strerror(errno));
         return 1;
     }
 
