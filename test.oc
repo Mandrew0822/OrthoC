@@ -5,24 +5,19 @@ Prayer: St. Porphyrios, please pray for us
 invoke HolyTrinity() {
 
     chant("In the Name of the Father, Son, And The Holy Spirit.");
-}
-
-invoke SecondFunction() {
 
     incense variable = "Now And Forever and unto the ages of ages. Amen.";
     chant("%s", variable);
-}
 
-invoke MathTest() {
     chant("Result of equation: ");
     theosis(2 + 5 - 2 / 7 * 10);
     chant("Now an equation should be ran but with no output.");
     theosis(15 + 15); > null
+
+    repent("Enter a random string: ", str);
+    chant("You entered: %s", str);
 }
 
 /pray/ unceasingly.pray: HolyTrinity
 
 call.upon HolyTrinity
-call.upon SecondFunction
-call.upon MathTest
-
