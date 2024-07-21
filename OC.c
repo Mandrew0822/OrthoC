@@ -7,6 +7,7 @@
 **    |    and distribution     |       **
 *****************************************/
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,8 +42,7 @@ int current_line_number = 0;
 
 // Function to report errors with colored [ERROR] tag
 void report_error(const char* message, int line_number) {
-    
-  fprintf(stderr, ANSI_BG ANSI_FG "[ERROR]" ANSI_RESET " Line %d: %s\n", line_number, message);
+    fprintf(stderr, ANSI_BG ANSI_FG "[ERROR]" ANSI_RESET " Line %d: %s\n", line_number, message);
 }
 
 // Function to remove leading and trailing whitespace from a string
@@ -80,6 +80,16 @@ void add_function(const char* name, long position) {
 
 // Function to add a new variable to the variables array
 void add_variable(const char* name, const char* value) {
+    for (int i = 0; i < variable_count; i++) {
+        if (strcmp(variables[i].name, name) == 0) {
+            // Update existing variable
+            free(variables[i].value);
+            variables[i].value = strdup(value);
+            return;
+        }
+    }
+    
+    // Add new variable
     variables = realloc(variables, (variable_count + 1) * sizeof(Variable));
     if (variables == NULL) {
         report_error("Memory allocation failed", current_line_number);
@@ -201,6 +211,28 @@ double evaluate_expression(const char* expression) {
     return values[0];
 }
 
+// Function to handle user input
+char* get_user_input(const char* prompt) {
+    char* input = NULL;
+    size_t len = 0;
+    ssize_t read;
+
+    printf("%s", prompt);
+    read = getline(&input, &len, stdin);
+
+    if (read == -1) {
+        free(input);
+        return NULL;
+    }
+
+    // Remove newline character if present
+    if (input[read - 1] == '\n') {
+        input[read - 1] = '\0';
+    }
+
+    return input;
+}
+
 // Function to execute a defined function
 void execute_function(FILE* file, const char* function_name) {
     int function_found = 0;
@@ -301,6 +333,37 @@ void execute_function(FILE* file, const char* function_name) {
                         }
                     } else {
                         report_error("Invalid theosis syntax", current_line_number);
+                    }
+                } else if (strncmp(line, "repent(", 7) == 0) {
+                    // Process repent statement (user input)
+                    char* prompt_start = strchr(line, '"');
+                    if (prompt_start) {
+                        prompt_start++;
+                        char* prompt_end = strchr(prompt_start, '"');
+                        if (prompt_end) {
+                            *prompt_end = '\0';
+                            char* var_name = strchr(prompt_end + 1, ',');
+                            if (var_name) {
+                                var_name++;
+                                trim(var_name);
+                                char* var_end = strchr(var_name, ')');
+                                if (var_end) *var_end = '\0';
+                                
+                                char* user_input = get_user_input(prompt_start);
+                                if (user_input) {
+                                    add_variable(var_name, user_input);
+                                    free(user_input);
+                                } else {
+                                    report_error("Failed to read user input", current_line_number);
+                                }
+                            } else {
+                                report_error("Invalid repent syntax, missing variable name", current_line_number);
+                            }
+                        } else {
+                            report_error("Unterminated string in repent", current_line_number);
+                        }
+                    } else {
+                        report_error("Invalid repent syntax", current_line_number);
                     }
                 } else if (strcmp(line, "}") == 0) {
                     // End of function
