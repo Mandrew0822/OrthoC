@@ -41,5 +41,4 @@ When updating the code remember the following points:
 TODO:
 - Move to a transpiler (OrthoC -> C binary output) if im feeling adventerous
 - Implementation of conditional statements (if/else)
-- User input
 - Basic file handling
