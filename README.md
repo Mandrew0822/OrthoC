@@ -18,16 +18,17 @@ Orthodox programming language
 
 ### [Current Version: v1.4]
 ### Latest changes:
+	- Split source file into 3 different files
 	- Added user input with 'repent()'
 	- Added far better error handling
 	- Added arithmetic with 'theosis()'
-	- Made 'faithful.chant()' into 'chant()' for efficiency
 
 # Installation
     git clone https://github.com/Mandrew0822/OrthoC.git
     cd OrthoC
     sudo chmod +x build
     ./build
+    
 # For Contributors
 
 When updating the code remember the following points:
