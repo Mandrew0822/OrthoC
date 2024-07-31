@@ -8,7 +8,7 @@ cc -o occ main.c utils.c -lm
 echo "Moving executable"
 sudo mv occ /usr/local/bin 
 
-cd..
+cd ..
 
 echo "done :)"
 echo "May God bless you and be with you always."
