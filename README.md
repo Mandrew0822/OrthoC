@@ -39,7 +39,7 @@ When updating the code remember the following points:
 4. Update the changelog
 5. Change the version number if the feature was large enough
 
-TODO:
-- Move to a transpiler (OrthoC -> C binary output) if im feeling adventerous
-- Implementation of conditional statements (if/else)
-- Basic file handling
+- TODO:
+- [ ] Move to a transpiler (OrthoC -> C binary output) if im feeling adventerous
+- [ ] Implementation of conditional statements (if/else)
+- [ ] Basic file handling
